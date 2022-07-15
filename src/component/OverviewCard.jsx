@@ -51,8 +51,9 @@ export const OverviewCard = () => {
       bg="#FFFFFF"
       pb={7}
       alignItems="center"
+      alignSelf={{ base: "center", lg: "inherit" }}
       fontSize="xs"
-      maxW="60ch"
+      maxW={{ base: "50ch", lg: "60ch" }}
       boxShadow= "4px 5px 5px -2px lightgray"
     >
       <Flex
@@ -60,18 +61,17 @@ export const OverviewCard = () => {
         alignItems="center"
         pb="9ch"
       >
-        <Image 
+        <Image
           src={require('../image/view.jpg')}
           alt="logo" 
           borderTopRadius="lg"
-          width="60ch"
-          height="20ch"
+          maxW={{ base: "50ch", lg: "60ch" }}
         />
         <Avatar
           src={require('../image/logo.png')}
           size="xl"
           bg="#FFFFFF"
-          top="7ch"
+          top={{ base: "13ch", lg: "12ch" }}
           position="absolute"
         />
       </Flex>

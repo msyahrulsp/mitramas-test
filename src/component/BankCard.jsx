@@ -41,6 +41,7 @@ export const BankCard = () => {
           bg="#35763b"
           color="#FFFFFF"
           px={5}
+          size={{ base: "xs", lg: "md" }}
         >
           <AiOutlinePlus/>&nbsp;Tambah Akun Bank
         </Button>
@@ -48,11 +49,21 @@ export const BankCard = () => {
       {data.map((item) => {
         return (
           <Flex flexDirection="row" gap={5}>
-            <Box pt={16} pl={24} pb={4} pr={4} bg={item.bg} borderRadius="lg">
+            <Box
+              h={24}
+              w={32}
+              bg={item.bg}
+              borderRadius="lg"
+              alignSelf="center"
+            >
               <Text
+                display="flex"
+                justifyContent="flex-end"
                 fontSize="md"
                 fontWeight="bold"
                 color="#FFFFFF"
+                mr={2}
+                mt={16}
               >
                 VISA
               </Text>

@@ -32,7 +32,6 @@ export const LokasiCard = () => {
       bg="#FFFFFF"
       boxShadow= "4px 5px 5px -2px lightgray"
       borderRadius="lg"
-      flexWrap="wrap"
     >
       <Flex
         flexDirection="row"
@@ -58,6 +57,7 @@ export const LokasiCard = () => {
               alignItems="center"
               w="100%"
               fontSize="md"
+              flexWrap="wrap"
             >
               <item.icon size={40} />
               <Flex justifyContent="flex-end" flexDirection="column">

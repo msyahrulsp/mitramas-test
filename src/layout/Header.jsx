@@ -8,7 +8,7 @@ export const Header = () => {
       flexDirection="row"
       justifyContent="space-between"
       alignItems="center"
-      px={10}
+      px={5}
       py={3}
     >
       <Box
@@ -16,11 +16,15 @@ export const Header = () => {
         alignContent="center"
       >
         <Text
-          color="lightslategray"
+          opacity="0.5"
+          fontSize={{ base: "8px", lg: "md" }}
         >
           Perusahaan <ChevronRightIcon />&nbsp;
         </Text>
-        <Text fontWeight="bold">
+        <Text 
+          fontWeight="bold"
+          fontSize={{ base: "8px", lg: "md" }}
+        >
           Mitramas Infosys Global
         </Text>
       </Box>
@@ -38,8 +42,12 @@ export const Header = () => {
           gap={3}
           alignItems="center"
         >
-          <Avatar name="John Doe" size="sm" />
-          John Doe
+          <Avatar name="John Doe" size={{ base: "xs", lg: "sm" }} />
+          <Text
+            fontSize={{ base: "8px", lg: "md" }}
+          >
+            John Doe
+          </Text>
         </Flex>
       </Flex>
     </Flex>

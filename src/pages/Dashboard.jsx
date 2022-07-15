@@ -10,11 +10,11 @@ import { Flex } from '@chakra-ui/react';
 export const Dashboard = () => {
   return (
     <PageLayout>
-      <Flex flexDirection="row" gap={8} h="100%">
+      <Flex flexDirection={{ base: "column", lg: "row" }} gap={8} h="100%">
         <OverviewCard />
         <Flex flexDirection="column" w="100%" gap={8}>
           <LokasiCard />
-          <Flex flexDirection="row" gap={8}>
+          <Flex flexDirection={{ base: "column-reverse", lg: "row" }} gap={8}>
             <Flex flexDirection="column" w="100%" gap={8}>
               <BankCard />
               <RelasiCard />
