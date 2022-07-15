@@ -34,8 +34,7 @@ function App() {
   return (
     <Router>
       <Flex
-        // TODO cek size
-        direction={{ base: 'column', md: 'row' }}
+        direction={{ base: 'column', lg: 'row' }}
         bg="#D4F5E9"
       >
         <Navbar />

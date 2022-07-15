@@ -5,12 +5,14 @@ import { AiOutlineHome, AiOutlineDatabase } from 'react-icons/ai';
 export const Navbar = () => {
   return (
     <Flex
-      w="fit-content"
+      w={{base: "100%", lg: "fit-content"}}
       px={4}
       py={3}
       bg="#FFFFFF"
       boxShadow= "4px 5px 5px -2px lightgray"
-      flexDirection="column"
+      flexDirection={{base: "row", lg: "column"}}
+      justifyContent={{base: "space-between", lg: "flex-start"}}
+      alignItems="center"
       flexWrap="wrap"
       borderRadius="lg"
     >
@@ -21,10 +23,10 @@ export const Navbar = () => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        mt={16}
-        gap={10}
-        flexDirection="column"
-        pb={10}
+        mt={{base: 0, lg: 16}}
+        gap={{base: 5, lg: 10}}
+        flexDirection={{base: "row%", lg: "column"}}
+        pb={{base: 0, lg: 10}}
       >
         <Link to="/">
           <AiOutlineHome size={20} />
