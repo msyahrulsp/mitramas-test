@@ -1,13 +1,13 @@
-import { Home } from '../pages/Home';
+import { Data } from '../pages/Data';
 import { Dashboard } from '../pages/Dashboard';
 
 export const routes = [
   {
     path: '/',
-    component: Home,
+    component: Dashboard,
   },
   {
-    path: '/dashboard',
-    component: Dashboard,
+    path: '/data',
+    component: Data,
   }
 ]

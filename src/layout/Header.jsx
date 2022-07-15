@@ -25,11 +25,11 @@ export const Header = () => {
         </Text>
       </Box>
       <Flex
-        gap={12}
+        gap={9}
         alignItems="center"
       >
         <Flex
-          gap={6}
+          gap={5}
         >
           <SearchIcon />
           <BellIcon />
