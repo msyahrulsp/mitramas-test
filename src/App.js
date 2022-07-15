@@ -7,7 +7,9 @@ import {
 } from 'react-router-dom';
 import { routes } from './util/route';
 import { AnimatePresence } from 'framer-motion';
-import { Navbar } from './component/Navbar';
+
+import { Navbar } from './layout/Navbar';
+import { Header } from './layout/Header';
 
 const AnimatedRoute = () => {
   return (
@@ -34,11 +36,16 @@ function App() {
       <Flex
         // TODO cek size
         direction={{ base: 'column', md: 'row' }}
-        h="100%"
-        bg="#F4FAF5"
+        bg="#D4F5E9"
       >
         <Navbar />
-        <AnimatedRoute />
+        <Flex
+          direction="column"
+          w="100%"
+        >
+          <Header />
+          <AnimatedRoute />
+        </Flex>
       </Flex>
     </Router>
   );

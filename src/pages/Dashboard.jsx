@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PageAnimation } from '../util/animate-page';
+import { PageLayout } from '../layout/PageLayout';
 
 export const Dashboard = () => {
   return (
-    <PageAnimation>
-        <Link to="/">Dashboard</Link>
-    </PageAnimation>
+    <PageLayout>
+      <Link to="/">Dashboard</Link>
+    </PageLayout>
   )
 }

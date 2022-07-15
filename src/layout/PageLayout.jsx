@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Box } from '@chakra-ui/react';
 
 const pageAnimation = {
   initial: {
@@ -13,7 +14,7 @@ const pageAnimation = {
   },
 };
 
-export const PageAnimation = ({ children }) => {
+export const PageLayout = ({ children }) => {
   return (
     <motion.div
       variants={pageAnimation}
@@ -26,7 +27,12 @@ export const PageAnimation = ({ children }) => {
         }
       }
     >
-      {children}
+      <Box
+        px={10}
+        py={3}
+      >
+        {children}
+      </Box>
     </motion.div>
   )
 }
