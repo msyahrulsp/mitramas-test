@@ -8,11 +8,11 @@ export const Navbar = () => {
       w="fit-content"
       px={4}
       py={3}
-      minH="100vh"
       bg="#FFFFFF"
-      boxShadow= "4px 0 5px -2px lightgray"
+      boxShadow= "4px 5px 5px -2px lightgray"
       flexDirection="column"
       flexWrap="wrap"
+      borderRadius="lg"
     >
       <Link to="/">
         LOGO
@@ -21,15 +21,16 @@ export const Navbar = () => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        mt={10}
-        gap={6}
+        mt={16}
+        gap={10}
         flexDirection="column"
+        pb={10}
       >
         <Link to="/">
-          <AiOutlineHome />
+          <AiOutlineHome size={20} />
         </Link>
         <Link to="/data">
-          <AiOutlineDatabase />
+          <AiOutlineDatabase size={20} />
         </Link>
       </Box>
     </Flex>

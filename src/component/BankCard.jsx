@@ -1,4 +1,4 @@
-import { Flex, Text, Button, Box }from '@chakra-ui/react';
+import { Flex, Text, Button, Box } from '@chakra-ui/react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { FaPencilAlt, FaTrashAlt } from 'react-icons/fa';
 
@@ -27,13 +27,14 @@ export const BankCard = () => {
       boxShadow= "4px 5px 5px -2px lightgray"
       borderRadius="lg"
       gap={4}
+      flexWrap="wrap"
     >
       <Flex
         direction="row"
         justifyContent="space-between"
         alignItems="center"
       >
-        <Text fontWeight="semibold" fontSize="lg">
+        <Text fontWeight="bold" fontSize="lg">
           Akun Bank
         </Text>
         <Button
@@ -58,7 +59,7 @@ export const BankCard = () => {
             </Box>
             <Flex flexDirection="column" w="100%">
               <Flex flexDirection="row" justifyContent="space-between">
-                <Text fontWeight="semibold">
+                <Text fontWeight="bold">
                   {item.title}
                 </Text>
                 <Flex alignItems="center" gap={4}>

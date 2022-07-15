@@ -20,7 +20,7 @@ export const Header = () => {
         >
           Perusahaan <ChevronRightIcon />&nbsp;
         </Text>
-        <Text fontWeight="semibold">
+        <Text fontWeight="bold">
           Mitramas Infosys Global
         </Text>
       </Box>

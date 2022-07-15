@@ -22,7 +22,7 @@ const data = [
   },
 ]
 
-export const LokasiCard = (props) => {
+export const LokasiCard = () => {
   return (
     <Flex
       px={6}
@@ -30,15 +30,15 @@ export const LokasiCard = (props) => {
       flexDirection="column"
       gap={2}
       bg="#FFFFFF"
-      width="100%"
       boxShadow= "4px 5px 5px -2px lightgray"
       borderRadius="lg"
+      flexWrap="wrap"
     >
       <Flex
         flexDirection="row"
         justifyContent="space-between"
       >
-        <Text fontWeight="semibold">
+        <Text fontWeight="bold" fontSize="lg">
           Lokasi
         </Text>
         <Text color="green">

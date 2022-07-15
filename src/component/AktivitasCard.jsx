@@ -27,7 +27,7 @@ export const AktivitasCard = () => {
       gap={4}
       flexWrap="wrap"
     >
-      <Text fontSize="lg" fontWeight="semibold">
+      <Text fontSize="lg" fontWeight="bold">
         Aktivitas
       </Text>
       <Flex flexDirection="column" gap={4}>

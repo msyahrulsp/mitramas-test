@@ -42,14 +42,13 @@ const util2 = [
   },
 ]
 
-export const OverviewCard = (props) => {
+export const OverviewCard = () => {
   return (
     <Flex
       flexDirection="column"
       flexWrap="wrap"
       borderRadius="lg"
       bg="#FFFFFF"
-      height="100%"
       pb={7}
       alignItems="center"
       fontSize="xs"
@@ -78,7 +77,7 @@ export const OverviewCard = (props) => {
       </Flex>
       <Container px={7}>
         <Flex gap={1} flexDirection="column" textAlign="center">
-          <Text fontWeight="semibold" fontSize="lg">
+          <Text fontWeight="bold" fontSize="lg">
             Mitramas Infosys Global
           </Text>
           <Text color="gray">
