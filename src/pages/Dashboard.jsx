@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { PageLayout } from '../layout/PageLayout';
+import { OverviewCard } from '../component/OverviewCard';
 
 export const Dashboard = () => {
   return (
     <PageLayout>
-      <Link to="/">Dashboard</Link>
+      <OverviewCard />
     </PageLayout>
   )
 }
