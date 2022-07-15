@@ -1,10 +1,10 @@
 import React from 'react';
 import { PageLayout } from '../layout/PageLayout';
-import { OverviewCard } from '../component/OverviewCard';
-import { LokasiCard } from '../component/LokasiCard';
-import { BankCard } from '../component/BankCard';
-import { AktivitasCard } from '../component/AktivitasCard';
-import { RelasiCard } from '../component/RelasiCard';
+import { OverviewCard } from '../component/Card/OverviewCard';
+import { LokasiCard } from '../component/Card/LokasiCard';
+import { BankCard } from '../component/Card/BankCard';
+import { AktivitasCard } from '../component/Card/AktivitasCard';
+import { RelasiCard } from '../component/Card/RelasiCard';
 import { Flex } from '@chakra-ui/react';
 
 export const Dashboard = () => {

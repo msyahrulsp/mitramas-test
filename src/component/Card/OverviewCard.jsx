@@ -62,13 +62,13 @@ export const OverviewCard = () => {
         pb="9ch"
       >
         <Image
-          src={require('../image/view.jpg')}
+          src={require('../../image/view.jpg')}
           alt="logo" 
           borderTopRadius="lg"
           maxW={{ base: "50ch", lg: "60ch" }}
         />
         <Avatar
-          src={require('../image/logo.png')}
+          src={require('../../image/logo.png')}
           size="xl"
           bg="#FFFFFF"
           top={{ base: "13ch", lg: "12ch" }}

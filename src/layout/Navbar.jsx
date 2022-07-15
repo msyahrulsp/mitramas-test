@@ -30,7 +30,7 @@ export const Navbar = () => {
         justifyContent="center"
         mt={{ base: 0, lg: 16 }}
         gap={{ base: 5, lg: 10 }}
-        flexDirection={{base: "row%", lg: "column" }}
+        flexDirection={{base: "row", lg: "column" }}
         pb={{ base: 0, lg: 10 }}
       >
         <Link to="/">
