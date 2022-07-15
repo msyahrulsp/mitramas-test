@@ -53,7 +53,8 @@ export const OverviewCard = (props) => {
       pb={7}
       alignItems="center"
       fontSize="xs"
-      maxW="45ch"
+      maxW="60ch"
+      boxShadow= "4px 5px 5px -2px lightgray"
     >
       <Flex
         flexDirection="column"
@@ -64,14 +65,14 @@ export const OverviewCard = (props) => {
           src={require('../image/view.jpg')}
           alt="logo" 
           borderTopRadius="lg"
-          width="45ch"
-          height="15ch"
+          width="60ch"
+          height="20ch"
         />
         <Avatar
           src={require('../image/logo.png')}
           size="xl"
           bg="#FFFFFF"
-          top="5.5ch"
+          top="7ch"
           position="absolute"
         />
       </Flex>
