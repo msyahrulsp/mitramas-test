@@ -40,9 +40,9 @@ export const RelasiCard = () => {
           Lihat semua
         </Text>
       </Flex>
-      {data.map((item) => {
+      {data.map((item, idx) => {
         return (
-          <Flex flexDirection="row" gap={4} alignItems="center">
+          <Flex key={idx} flexDirection="row" gap={4} alignItems="center">
             <AiOutlineShareAlt size={30} />
             <Flex flexDirection="column">
               <Text fontSize="xl" fontWeight="bold">

@@ -31,9 +31,9 @@ export const AktivitasCard = () => {
         Aktivitas
       </Text>
       <Flex flexDirection="column" gap={4}>
-        {data.map((item) => {
+        {data.map((item, idx) => {
           return (
-            <Flex flexDirection="column" gap={1}>
+            <Flex key={idx} flexDirection="column" gap={1}>
               <Text>
                 {item.activity}
               </Text>

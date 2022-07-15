@@ -46,9 +46,9 @@ export const BankCard = () => {
           <AiOutlinePlus/>&nbsp;Tambah Akun Bank
         </Button>
       </Flex>
-      {data.map((item) => {
+      {data.map((item, idx) => {
         return (
-          <Flex flexDirection="row" gap={5}>
+          <Flex key={idx} flexDirection="row" gap={5}>
             <Box
               h={24}
               w={32}

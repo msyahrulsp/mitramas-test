@@ -45,9 +45,10 @@ export const LokasiCard = () => {
         </Text>
       </Flex>
       <Flex mt={2} gap={4} flexDirection="row" justifyContent="space-between">
-        {data.map((item) => {
+        {data.map((item, idx) => {
           return (
             <Flex
+              key={idx}
               bg={item.bg}
               px={3}
               py={3}

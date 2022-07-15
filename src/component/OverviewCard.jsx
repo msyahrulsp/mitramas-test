@@ -115,9 +115,9 @@ export const OverviewCard = () => {
               <Switch isChecked colorScheme="green" />
             </Flex>
           </Flex>
-          {util.map(({ title, value }) => {
+          {util.map(({ title, value }, idx) => {
             return (
-              <Flex gap={1} flexDirection="inherit">
+              <Flex gap={1} key={idx} flexDirection="inherit">
                 <Text>
                   {title}
                 </Text>
@@ -127,9 +127,9 @@ export const OverviewCard = () => {
               </Flex>
             )
           })}
-          {util2.map((item) => {
+          {util2.map((item, idx) => {
             return (
-              <Flex gap={1} flexDirection="inherit">
+              <Flex gap={1} key={idx} flexDirection="inherit">
                 <Text>
                   {item.title}
                 </Text>
