@@ -130,7 +130,7 @@ export const Data = () => {
           pagination.pageItems.map((item, idx) => {
             return (
               <DataCard 
-                key={idx}
+                key={item.id}
                 {...item}
               />
             )
