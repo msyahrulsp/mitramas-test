@@ -36,7 +36,7 @@ export function destroy() {
 
 export async function getDataAPI(path) {
   let token = getToken();
-  if (token) {
+  try {
     const { data } = await Axios.get(
       `${process.env.REACT_APP_API_URL}${path}`,
       {
@@ -47,16 +47,16 @@ export async function getDataAPI(path) {
     );
 
     return data;
+  } catch {
+    token = await newToken();
+    const { data } = await Axios.get(
+      `${process.env.REACT_APP_API_URL}${path}`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+    return data
   }
-
-  token = await newToken();
-  const { data } = await Axios.get(
-    `${process.env.REACT_APP_API_URL}${path}`,
-    {
-      headers: {
-        Authorization: token,
-      },
-    }
-  );
-  return data
 }

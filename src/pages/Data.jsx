@@ -15,7 +15,8 @@ import usePagination from '../component/Pagination/PaginationUtil';
 export const Data = () => {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
-  const [filter, setFilter] = useState();
+  const [filter, setFilter] = useState([true, true]);
+  const [defaultData, setDefaultData] = useState([]);
   const [data, setData] = useState([]);
   const pagination = usePagination({
     totalItem: data.length,
@@ -24,36 +25,55 @@ export const Data = () => {
     itemsPerPage: 5,
   })
 
-  const searchData = () => {
-    // if (search !== '') {
-    //   let searchedItem = scoreboard.filter(
-    //     (item) =>
-    //       item.nim.toString().includes(search) ||
-    //       item.name.toLowerCase().includes(search.toLowerCase()) ||
-    //       item.kelompok.toLowerCase().includes(search.toLowerCase())
-    //   );
-    //   setData(searchedItem);
-    // } else {
-    //   setData(defaultData);
-    // }
-    // setPage(1);
+  const searchData = (trueVal, falseVal, val) => {
+    let searchedItem = defaultData;
+
+    if (val !== '') {
+      searchedItem = searchedItem.filter(
+        (item) =>
+          item.name.toLowerCase().includes(val.toLowerCase())
+      );
+    }
+
+    let tempTrue = []
+    if (trueVal) {
+      tempTrue = searchedItem.filter((item) => item.status === true);
+    }
+
+    let tempFalse = []
+    if (falseVal) {
+      tempFalse = searchedItem.filter((item) => item.status === false);
+    }
+
+    setData(tempTrue.concat(tempFalse).sort((a, b) => a.firstName.localeCompare(b.firstName)));
+    setPage(1);
+  }
+
+  const handleTrue = (e) => {
+    setFilter([e.target.checked, filter[1]]);
+    searchData(e.target.checked, filter[1], search);
+  }
+
+  const handleFalse = (e) => {
+    setFilter([filter[0], e.target.checked]);
+    searchData(filter[0], e.target.checked, search);
   }
 
   const handleChange = (e) => {
     setSearch(e.target.value);
-
-    // Clicked 'X' on searchbar
-    if (e.nativeEvent.data === undefined) {
-      setData([]);
-      setPage(1);
-    }
-
-    searchData();
+    searchData(filter[0], filter[1], e.target.value);
   }
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await getDataAPI("/customers");
-      setData(data);
+      const { data } = await getDataAPI("/customers")
+      const temp = data.map((item) => {
+        return {
+          ...item,
+          firstName: item.name.split(' ')[0],
+        }
+      }).sort((a, b) => a.name.localeCompare(b.name))
+      setDefaultData(temp);
+      setData(temp);
     }
     fetchData();
   }, [])
@@ -64,7 +84,14 @@ export const Data = () => {
         maxW="70ch"
         mb={8}
       >
-        <SearchBar />
+        <SearchBar
+          onChange={handleChange}
+          value={search}
+          handleTrue={handleTrue}
+          handleFalse={handleFalse}
+          trueVal={filter[0]}
+          falseVal={filter[1]}
+        />
       </Container>
       <Flex
         justifyContent="center"
