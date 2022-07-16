@@ -52,7 +52,7 @@ export const DeleteModal = (props) => {
 
   return (
     <>
-      <Flex color="red" onClick={onOpen}><FaTrashAlt /></Flex>
+      <Flex color="red" onClick={onOpen}><FaTrashAlt cursor="pointer" /></Flex>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -65,7 +65,7 @@ export const DeleteModal = (props) => {
             </Text>
           </ModalBody>
           <ModalFooter gap={4}>
-            <Button bg="#D4F5E9" onClick={onClose}>
+            <Button bg="#D4F5E9" color="#888888" onClick={onClose}>
               Cancel
             </Button>
             <Button bg="red" color="#FFFFFF" onClick={handleSubmit}>

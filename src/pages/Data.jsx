@@ -4,6 +4,7 @@ import {
   Container,
   Flex,
   Center,
+  Button
 }from '@chakra-ui/react'
 import { PageLayout } from '../layout/PageLayout';
 import { getDataAPI } from '../util/api';
@@ -12,6 +13,8 @@ import { DataCard } from '../component/Card/DataCard';
 import Pagination from '../component/Pagination/Pagination';
 import usePagination from '../component/Pagination/PaginationUtil';
 import { Loading } from '../component/Loading/Loading';
+import { CreateModal } from '../component/Modal/CreateModal';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 export const Data = () => {
   const [search, setSearch] = useState('');
@@ -101,12 +104,24 @@ export const Data = () => {
         alignItems="center"
         flexDirection="column"
       >
-        <Text
-          fontWeight="bold"
-          mb={5}
+        <Flex
+          flexDirection="row"
+          gap={5}
         >
-          Data Customer
-        </Text>
+          <Text
+            fontWeight="bold"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            Data Customer
+          </Text>
+          <CreateModal>
+            <Button>
+              <AiOutlinePlus />&nbsp;Tambah Data
+            </Button>
+          </CreateModal>
+        </Flex>
         {pagination.pageItems.length > 0 && !isLoading ? (
           pagination.pageItems.map((item, idx) => {
             return (

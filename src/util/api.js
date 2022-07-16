@@ -61,6 +61,35 @@ export async function getDataAPI(path) {
   }
 }
 
+export async function createDataAPI(path, payload) {
+  let token = getToken();
+  try {
+    const { data } = await Axios.post(
+      `${process.env.REACT_APP_API_URL}${path}`,
+      payload,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    return data;
+  } catch {
+    token = await newToken();
+    const { data } = await Axios.post(
+      `${process.env.REACT_APP_API_URL}${path}`,
+      payload,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+    return data
+  }
+}
+
 export async function putDataAPI(path, payload) {
   let token = getToken();
   try {

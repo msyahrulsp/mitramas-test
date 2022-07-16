@@ -18,39 +18,33 @@ import {
   Button,
   useToast,
 } from "@chakra-ui/react";
-import { FaPencilAlt } from "react-icons/fa";
-import { putDataAPI } from '../../util/api';
+import { createDataAPI } from '../../util/api';
 
-export const EditModal = (props) => {
+export const CreateModal = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [val, setVal] = useState({
-    ...props
+    name: '',
+    address: '',
+    country: '',
+    phone_number: '',
+    job_title: '',
+    status: true,
   })
   const [stat, setStat] = useState(val.status === true ? '1' : '0');
   
   const toast = useToast();
   const handleSubmit = async () => {
     try {
-      if (val.name === "" || val.address === "" || val.country === "" || val.phone_number === "" || val.job_title === "") {
-        toast({
-          title: "Error",
-          description: "Terdapat field yang kosong",
-          status: "error",
-          isClosable: true,
-          position: "top",
-        });
-        return;
-      }
       const payload = {
         ...val,
-        status: stat === '1' ? true : false
+        status: stat === '1' ? true : false,
       }
 
-      await putDataAPI('/customers', payload);
+      await createDataAPI('/customers', payload);
 
       toast({
         title: "Berhasil",
-        description: "Berhasil mengubah profil",
+        description: "Berhasil menambah data",
         position: "top",
         status: "success",
       });
@@ -72,12 +66,22 @@ export const EditModal = (props) => {
 
   return (
     <>
-      <Flex color="green" onClick={onOpen}><FaPencilAlt cursor="pointer" /></Flex>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Flex onClick={onOpen}>{children}</Flex>
+      <Modal isOpen={isOpen} onClose={() => {
+        onClose();
+        setVal({
+          name: '',
+          address: '',
+          country: '',
+          phone_number: '',
+          job_title: '',
+          status: true,
+        })
+      }}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>
-            Edit Data
+            Tambah Data
           </ModalHeader>
           <ModalBody pb={6}>
             <FormControl isRequired>
