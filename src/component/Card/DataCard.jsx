@@ -1,6 +1,6 @@
 import { Flex, Avatar, Text, Container } from '@chakra-ui/react';
-import { FaPencilAlt, FaTrashAlt } from 'react-icons/fa';
 import { EditModal } from '../Modal/EditModal';
+import { DeleteModal } from '../Modal/DeleteModal';
 
 export const DataCard = (props) => {
   return (
@@ -29,7 +29,7 @@ export const DataCard = (props) => {
           </Text>
           <Flex gap={4} alignItems="center">
             <EditModal {...props} />
-            <FaTrashAlt color="red" />
+            <DeleteModal {...props} />
           </Flex>
         </Flex>
         <Text opacity="0.8" whitespace="pre-line">{props.address}</Text>
