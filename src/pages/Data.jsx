@@ -6,11 +6,12 @@ import {
   Center,
 }from '@chakra-ui/react'
 import { PageLayout } from '../layout/PageLayout';
-import { getDataAPI, getToken, newToken } from '../util/api';
+import { getDataAPI } from '../util/api';
 import { SearchBar } from '../component/Search/SearchBar';
 import { DataCard } from '../component/Card/DataCard';
 import Pagination from '../component/Pagination/Pagination';
 import usePagination from '../component/Pagination/PaginationUtil';
+import { Loading } from '../component/Loading/Loading';
 
 export const Data = () => {
   const [search, setSearch] = useState('');
@@ -18,6 +19,7 @@ export const Data = () => {
   const [filter, setFilter] = useState([true, true]);
   const [defaultData, setDefaultData] = useState([]);
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const pagination = usePagination({
     totalItem: data.length,
     page,
@@ -74,6 +76,7 @@ export const Data = () => {
       }).sort((a, b) => a.name.localeCompare(b.name))
       setDefaultData(temp);
       setData(temp);
+      setIsLoading(false);
     }
     fetchData();
   }, [])
@@ -104,7 +107,7 @@ export const Data = () => {
         >
           Data Customer
         </Text>
-        {pagination.pageItems.length > 0 ? (
+        {pagination.pageItems.length > 0 && !isLoading ? (
           pagination.pageItems.map((item, idx) => {
             return (
               <DataCard 
@@ -112,11 +115,14 @@ export const Data = () => {
                 {...item}
               />
             )
-        })
-        ) : (
+        })) : (
+          isLoading ? (
+            <Loading />
+          ) : (
           <Center>
             Empty Data
           </Center>
+          )
         )}
         <Center>
           <Pagination

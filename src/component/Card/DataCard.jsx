@@ -25,7 +25,7 @@ export const DataCard = (props) => {
             {props.name}
           </Text>
           <Flex gap={3} alignItems="center">
-            <FaPencilAlt color="green" />
+            <FaPencilAlt color="green" onClick={() => console.log(props)}/>
             <FaTrashAlt color="red" />
           </Flex>
         </Flex>
