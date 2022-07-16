@@ -70,15 +70,19 @@ export const Data = () => {
   }
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await getDataAPI("/customers")
-      const temp = data.map((item) => {
-        return {
-          ...item,
-          firstName: item.name.split(' ')[0],
-        }
-      }).sort((a, b) => a.name.localeCompare(b.name))
-      setDefaultData(temp);
-      setData(temp);
+      try {
+        const { data } = await getDataAPI("/customers")
+        const temp = data.map((item) => {
+          return {
+            ...item,
+            firstName: item.name.split(' ')[0],
+          }
+        }).sort((a, b) => a.name.localeCompare(b.name))
+        setDefaultData(temp);
+        setData(temp);
+      } catch (err) {
+        console.log(err)
+      }
       setIsLoading(false);
     }
     fetchData();
