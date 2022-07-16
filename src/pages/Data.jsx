@@ -134,7 +134,7 @@ export const Data = () => {
           isLoading ? (
             <Loading />
           ) : (
-          <Center>
+          <Center mt={5}>
             Empty Data
           </Center>
           )
