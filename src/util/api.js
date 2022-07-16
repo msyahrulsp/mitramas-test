@@ -124,11 +124,11 @@ export async function deleteDataAPI(path, payload) {
   try {
     const { data } = await Axios.delete(
       `${process.env.REACT_APP_API_URL}${path}`,
-      payload,
       {
         headers: {
           Authorization: token,
         },
+        params: payload,
       }
     );
 
@@ -137,11 +137,11 @@ export async function deleteDataAPI(path, payload) {
     token = await newToken();
     const { data } = await Axios.delete(
       `${process.env.REACT_APP_API_URL}${path}`,
-      payload,
       {
         headers: {
           Authorization: token,
         },
+        params: payload,
       }
     );
     return data

@@ -22,11 +22,11 @@ export const DeleteModal = (props) => {
   const toast = useToast();
   const handleSubmit = async () => {
     try {
-      const payload = {
+      const parameter = {
         id: props.id
       }
 
-      await deleteDataAPI('/customers', payload);
+      await deleteDataAPI('/customers', parameter);
 
       toast({
         title: "Berhasil",

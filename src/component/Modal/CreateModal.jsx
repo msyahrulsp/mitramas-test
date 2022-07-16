@@ -35,6 +35,16 @@ export const CreateModal = ({ children }) => {
   const toast = useToast();
   const handleSubmit = async () => {
     try {
+      if (val.name === "" || val.address === "" || val.country === "" || val.phone_number === "" || val.job_title === "") {
+        toast({
+          title: "Error",
+          description: "Terdapat field yang kosong",
+          status: "error",
+          isClosable: true,
+          position: "top",
+        });
+        return;
+      }
       const payload = {
         ...val,
         status: stat === '1' ? true : false,
